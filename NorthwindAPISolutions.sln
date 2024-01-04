@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Insfrastucture", "Insfrastu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{55094DDE-0D8E-4F3C-BA0E-4D63677542EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebAPI", "Northwind.WebAPI\Northwind.WebAPI.csproj", "{3B36FE20-5E45-43AF-9E45-E2F8EC669536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebAPI", "Northwind.WebAPI\Northwind.WebAPI.csproj", "{3B36FE20-5E45-43AF-9E45-E2F8EC669536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Persistence", "Northwind.Persistence\Northwind.Persistence.csproj", "{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Persistence", "Northwind.Persistence\Northwind.Persistence.csproj", "{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Domain", "Northwind.Domain\Northwind.Domain.csproj", "{D97E82EA-DE73-44A0-89BC-9ED1343EBBF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Domain", "Northwind.Domain\Northwind.Domain.csproj", "{D97E82EA-DE73-44A0-89BC-9ED1343EBBF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Services", "Northwind.Services\Northwind.Services.csproj", "{BE769E4E-3EE8-4933-AC06-0348CCD0F989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Services", "Northwind.Services\Northwind.Services.csproj", "{BE769E4E-3EE8-4933-AC06-0348CCD0F989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Services.Abstraction", "Northwind.Services.Abstraction\Northwind.Services.Abstraction.csproj", "{8623833D-B73A-4802-9626-5747640A5E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Services.Abstraction", "Northwind.Services.Abstraction\Northwind.Services.Abstraction.csproj", "{8623833D-B73A-4802-9626-5747640A5E79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Contract", "Northwind.Contract\Northwind.Contract.csproj", "{B95ACD2C-7B37-4679-81E4-DB545F22A72A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8623833D-B73A-4802-9626-5747640A5E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8623833D-B73A-4802-9626-5747640A5E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8623833D-B73A-4802-9626-5747640A5E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95ACD2C-7B37-4679-81E4-DB545F22A72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95ACD2C-7B37-4679-81E4-DB545F22A72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95ACD2C-7B37-4679-81E4-DB545F22A72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95ACD2C-7B37-4679-81E4-DB545F22A72A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{D97E82EA-DE73-44A0-89BC-9ED1343EBBF7} = {55094DDE-0D8E-4F3C-BA0E-4D63677542EE}
 		{BE769E4E-3EE8-4933-AC06-0348CCD0F989} = {55094DDE-0D8E-4F3C-BA0E-4D63677542EE}
 		{8623833D-B73A-4802-9626-5747640A5E79} = {55094DDE-0D8E-4F3C-BA0E-4D63677542EE}
+		{B95ACD2C-7B37-4679-81E4-DB545F22A72A} = {55094DDE-0D8E-4F3C-BA0E-4D63677542EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6676A8EB-33F9-47A2-84BC-FA12B92EADC1}

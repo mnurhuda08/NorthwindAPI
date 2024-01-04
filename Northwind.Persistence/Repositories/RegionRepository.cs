@@ -63,7 +63,7 @@ namespace Northwind.Persistence.Repositories
         {
             SqlCommandModel model = new SqlCommandModel()
             {
-                CommandText = "SELECT RegionId,RegionDescription WHERE regionId = @regionId;",
+                CommandText = "SELECT RegionId,RegionDescription FROM dbo.region WHERE regionId = @regionId;",
                 CommandType = CommandType.Text,
                 CommandParameters = new SqlCommandParameterModel[]
                 {

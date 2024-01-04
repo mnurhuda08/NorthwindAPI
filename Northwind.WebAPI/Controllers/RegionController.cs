@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Northwind.Contract.Models;
 using Northwind.Domain.Base;
 using Northwind.Services.Abstraction;
 
@@ -25,8 +26,16 @@ namespace Northwind.WebAPI.Controllers
         {
             try
             {
-                var region = _repositoryManager.RegionRepository.FindAllRegion().ToList();
-                return Ok(region);
+                var regions = _repositoryManager.RegionRepository.FindAllRegion().ToList();
+
+                //use DTO
+                var regionDTO = regions.Select(r => new RegionDto()
+                {
+                    RegionId = r.RegionId,
+                    RegionDescription = r.RegionDescription,
+                });
+
+                return Ok(regionDTO);
             }
             catch (Exception)
             {
@@ -37,9 +46,21 @@ namespace Northwind.WebAPI.Controllers
 
         // GET api/<RegionController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult GetByID(int id)
         {
-            return "value";
+            var region = _repositoryManager.RegionRepository.FindRegionByID(id);
+            if (region == null)
+            {
+                _logger.LogError("Region Data Not Found");
+                return BadRequest("Region Not Found");
+            }
+            var regionDTO = new RegionDto
+            {
+                RegionId = region.RegionId,
+                RegionDescription = region.RegionDescription,
+            };
+
+            return Ok(regionDTO);
         }
 
         // POST api/<RegionController>
