@@ -100,7 +100,7 @@ namespace Northwind.Persistence.Repositories
                         ParameterName = "@regionId",
                         DataType=DbType.Int32,
                         Value=region.RegionId
-                    }
+                    },
                     new SqlCommandParameterModel()
                     {
                         ParameterName = "@regionDescription",

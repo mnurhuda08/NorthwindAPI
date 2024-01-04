@@ -29,7 +29,7 @@ namespace Northwind.Services
 
         public void LogWarning(string message)
         {
-            logger.Warning(message);
+            logger.Warn(message);
         }
     }
 }
