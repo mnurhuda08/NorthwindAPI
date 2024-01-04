@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.Contract.Models;
 using Northwind.Domain.Base;
+using Northwind.Domain.Entities;
 using Northwind.Services.Abstraction;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -45,7 +46,7 @@ namespace Northwind.WebAPI.Controllers
         }
 
         // GET api/<RegionController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetRegionByID")]
         public IActionResult GetByID(int id)
         {
             var region = _repositoryManager.RegionRepository.FindRegionByID(id);
@@ -65,20 +66,70 @@ namespace Northwind.WebAPI.Controllers
 
         // POST api/<RegionController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Create([FromBody] RegionDto regionDto)
         {
+            //check region DTO null
+            if (regionDto == null)
+            {
+                _logger.LogError("RegionDTO is Null");
+                return BadRequest("RegionDTO is Null");
+            }
+            var region = new Region
+            {
+                RegionId = regionDto.RegionId,
+                RegionDescription = regionDto.RegionDescription
+            };
+
+            //post to db
+            _repositoryManager.RegionRepository.Insert(region);
+
+            //get inserted data
+            return CreatedAtRoute("GetRegionByID", new { id = regionDto.RegionId }, regionDto);
         }
 
         // PUT api/<RegionController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Update(int id, [FromBody] RegionDto regionDto)
         {
+            if (regionDto == null)
+            {
+                _logger.LogError("Region Not Found");
+                return BadRequest("region data not found");
+            }
+            var region = new Region
+            {
+                RegionId = id,
+                RegionDescription = regionDto.RegionDescription
+            };
+
+            _repositoryManager.RegionRepository.Edit(region);
+
+            return CreatedAtRoute(
+                "GetRegionByID",
+                new { id = regionDto.RegionId },
+                new RegionDto { RegionId = id, RegionDescription = region.RegionDescription }
+            );
         }
 
         // DELETE api/<RegionController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int? id)
         {
+            if (id == null)
+            {
+                _logger.LogError("ID Not Found");
+                return BadRequest("ID Not Found");
+            }
+
+            var region = _repositoryManager.RegionRepository.FindRegionByID(id.Value);
+            if (region == null)
+            {
+                _logger.LogError($"Region With Id : {id} Not Found");
+                return NotFound();
+            }
+
+            _repositoryManager.RegionRepository.Remove(region);
+            return Ok("Remove Data Success");
         }
     }
 }

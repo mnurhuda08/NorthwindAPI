@@ -56,17 +56,15 @@ namespace Northwind.Persistence.RepositoryContext
             sqlCommand.CommandType = model.CommandType;
 
             foreach (SqlCommandParameterModel parameter in model.CommandParameters)
-            {
                 sqlCommand.Parameters.Add(new SqlParameter()
                 {
                     ParameterName = parameter.ParameterName,
                     DbType = parameter.DataType,
                     Value = parameter.Value
                 });
-                _sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
-                _sqlConnection.Close();
-            }
+            _sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            _sqlConnection.Close();
         }
 
         public int ExecuteNonQueryReturn(SqlCommandModel model)
