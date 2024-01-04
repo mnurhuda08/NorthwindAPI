@@ -1,3 +1,7 @@
+using Northwind.Services;
+using Northwind.Services.Abstraction;
+using Northwind.WebAPI.Extensions;
+
 namespace Northwind.WebAPI
 {
     public class Program
@@ -6,7 +10,14 @@ namespace Northwind.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            ILoggerManager logger = new LoggerManager();
+
             // Add services to the container.
+            builder.Services.ConfigureCors();
+            builder.Services.ConfigureIISIntegration();
+            builder.Services.ConfigureDbContext(builder.Configuration);
+            builder.Services.ConfigureRepositoryManager();
+            builder.Services.ConfigureLoggerService();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,10 +33,15 @@ namespace Northwind.WebAPI
                 app.UseSwaggerUI();
             }
 
+            app.ConfigureExceptionHandler(logger);
+
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            //add custom
+            app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
 
+            app.UseAuthorization();
 
             app.MapControllers();
 
