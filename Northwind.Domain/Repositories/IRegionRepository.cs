@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Domain.Repositories
 {
-    internal interface IRegionRepository
+    public interface IRegionRepository
     {
         IEnumerable<Region> FindAllRegion();
 
