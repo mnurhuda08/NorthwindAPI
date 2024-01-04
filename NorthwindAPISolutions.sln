@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{55094DDE-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebAPI", "Northwind.WebAPI\Northwind.WebAPI.csproj", "{3B36FE20-5E45-43AF-9E45-E2F8EC669536}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Persistence", "Northwind.Persistence\Northwind.Persistence.csproj", "{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,17 @@ Global
 		{3B36FE20-5E45-43AF-9E45-E2F8EC669536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B36FE20-5E45-43AF-9E45-E2F8EC669536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B36FE20-5E45-43AF-9E45-E2F8EC669536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3B36FE20-5E45-43AF-9E45-E2F8EC669536} = {948D8CBA-F3FF-4B4E-BB47-F468AB126620}
+		{EC3D1FB3-E4DE-45AD-92D3-2F096A5601CB} = {A9FE7801-E73C-437B-B72C-54B8488FA1B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6676A8EB-33F9-47A2-84BC-FA12B92EADC1}
