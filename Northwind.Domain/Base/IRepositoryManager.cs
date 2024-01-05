@@ -10,5 +10,6 @@ namespace Northwind.Domain.Base
     public interface IRepositoryManager
     {
         IRegionRepository RegionRepository { get; }
+        IProductRepository ProductRepository { get; }
     }
 }
